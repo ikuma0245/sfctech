@@ -1,0 +1,78 @@
+// =============================================================
+//  サイトの中身はこのファイルだけ編集すればOK
+//  各班の原稿が届いたら groups の該当箇所を書き換える
+//  画像は images/ フォルダに入れて、ファイル名を書く
+// =============================================================
+
+window.SITE = {
+  event: {
+    name: "SFC TECH 2026",
+    date: "2026年11月24日（火）",
+    venue: "慶應義塾大学 北別館（東京都港区三田）",
+    url: "https://www.tech.sfc.keio.ac.jp/",
+  },
+  lab: {
+    name: "古谷研究室",
+    nameEn: "Furutani Lab, Keio University SFC",
+    members: "古谷 知之（総合政策学部 教授）／中島 有希大（政策・メディア研究科 特任助教）",
+    theme: "AI人材育成と地域活性化",
+    lead:
+      "福島イノベーション・コースト構想「復興知」事業で取り組んでいる、AI人材育成を通じた復興支援を紹介します。",
+    url: "", // 研究室の公式ページがあれば URL を入れる
+  },
+};
+
+// -------------------------------------------------------------
+//  班の一覧
+//  status: "ready"（公開）/ "draft"（準備中と表示）
+// -------------------------------------------------------------
+window.GROUPS = [
+  {
+    id: "group1",
+    status: "draft",
+    name: "1班",
+    title: "プロジェクト名（準備中）",
+    catch: "ひとことで言うと何をしているか",
+    cover: "", // 例: "images/group1-cover.jpg"
+    summary: "",
+    background: "",
+    results: [],
+    images: [], // 例: [{ src: "images/group1-1.jpg", caption: "実験のようす" }]
+    video: "", // YouTube の URL（任意）
+    future: "",
+    members: [],
+    links: [], // 例: [{ label: "論文", url: "https://..." }]
+  },
+  {
+    id: "group2",
+    status: "draft",
+    name: "2班",
+    title: "プロジェクト名（準備中）",
+    catch: "ひとことで言うと何をしているか",
+    cover: "",
+    summary: "",
+    background: "",
+    results: [],
+    images: [],
+    video: "",
+    future: "",
+    members: [],
+    links: [],
+  },
+  {
+    id: "group3",
+    status: "draft",
+    name: "3班",
+    title: "プロジェクト名（準備中）",
+    catch: "ひとことで言うと何をしているか",
+    cover: "",
+    summary: "",
+    background: "",
+    results: [],
+    images: [],
+    video: "",
+    future: "",
+    members: [],
+    links: [],
+  },
+];
