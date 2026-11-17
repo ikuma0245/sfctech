@@ -2,21 +2,50 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>古谷研究室｜SFC TECH 2026</title>
   <meta name="description" content="SFC TECH 2026 古谷研究室の展示紹介。各班の研究成果をまとめています。">
+  <meta name="theme-color" content="#a97fe0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="wrap">
-    <header class="hero" id="hero"></header>
-    <h2 class="section-title">各班の紹介</h2>
-    <div class="cards" id="cards"></div>
-  </main>
-  <footer><div class="wrap" id="footer"></div></footer>
+  <div id="header"></div>
+
+  <section class="hero" id="top">
+    <div class="slider" id="slider"></div>
+    <div class="slider-ctrl">
+      <button class="round" id="prev" aria-label="前へ">←</button>
+      <button class="round" id="next" aria-label="次へ">→</button>
+    </div>
+    <div class="wordmark" id="wordmark"></div>
+    <div class="ticker" aria-hidden="true"><div class="ticker-inner" id="ticker"></div></div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="en-ttl">ABOUT</h2>
+        <span class="ja-ttl">研究室について</span>
+      </div>
+      <div class="about-grid" id="about-body"></div>
+    </div>
+  </section>
+
+  <section class="section alt" id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="en-ttl">PROJECTS</h2>
+        <span class="ja-ttl">各班の紹介</span>
+      </div>
+      <div class="cards" id="cards"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer" id="footer"></footer>
+
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>

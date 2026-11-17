@@ -31,6 +31,7 @@ window.GROUPS = [
     id: "group1",
     status: "draft",
     name: "1班",
+    color: "#A97FE0", // ヒーローやカードの背景色
     title: "プロジェクト名（準備中）",
     catch: "ひとことで言うと何をしているか",
     cover: "", // 例: "images/group1-cover.jpg"
@@ -47,6 +48,7 @@ window.GROUPS = [
     id: "group2",
     status: "draft",
     name: "2班",
+    color: "#EE8BC8", // ヒーローやカードの背景色
     title: "プロジェクト名（準備中）",
     catch: "ひとことで言うと何をしているか",
     cover: "",
@@ -63,6 +65,7 @@ window.GROUPS = [
     id: "group3",
     status: "draft",
     name: "3班",
+    color: "#5EC4A6", // ヒーローやカードの背景色
     title: "プロジェクト名（準備中）",
     catch: "ひとことで言うと何をしているか",
     cover: "",
