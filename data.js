@@ -79,3 +79,21 @@ window.GROUPS = [
     links: [],
   },
 ];
+
+// -------------------------------------------------------------
+//  メディア掲載（新しいものを上に）
+// -------------------------------------------------------------
+window.MEDIA = [
+  {
+    source: "PIVOT",
+    program: "PIVOT TALK BUSINESS",
+    date: "2026.11.13",
+    title: "防衛テック投資の最前線",
+    person: "古谷 知之（国際文化会館 新領域戦略研究所 共同代表／慶應義塾大学 総合政策学部 教授）",
+    summary:
+      "ウクライナや中東情勢を背景に、世界で急増する防衛テックへの投資。防衛市場の構造変化と日本の現在地、そして次の主戦場となる量子技術の可能性を解説。",
+    duration: "30:54",
+    url: "https://pivotmedia.co.jp/movie/15242",
+    thumb: "https://pivotmedia.co.jp/images/static/converted/chapter/15242/ogp/15242.webp",
+  },
+];
