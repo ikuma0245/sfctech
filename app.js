@@ -33,7 +33,7 @@
       const draft = g.status !== "ready";
       const thumb = g.cover
         ? `<img class="thumb" src="${esc(g.cover)}" alt="" loading="lazy">`
-        : `<div class="thumb"></div>`;
+        : "";
       return `
         <a class="card${draft ? " draft" : ""}" href="group.html?id=${encodeURIComponent(g.id)}">
           ${thumb}
