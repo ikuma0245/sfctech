@@ -479,3 +479,11 @@ img { max-width: 100%; display: block; }
   border-radius: var(--pill);
 }
 @media (min-width: 900px) { .media-thumb { aspect-ratio: auto; min-height: 100%; } }
+
+/* cover caption / results note */
+.g-cover { margin: 32px 0 0; background: var(--white); }
+.g-cover figcaption { font-size: 13px; font-weight: 700; padding: 10px 16px; border-top: 1.5px solid var(--black); }
+.g-sec p.note { font-size: 13px; font-weight: 700; color: var(--muted); margin: 0 0 10px; }
+.slider-ctrl .round { background: var(--white); }
+.slider-ctrl .round:hover { background: var(--yellow); }
+.slide-cap { max-width: min(92%, 680px); }

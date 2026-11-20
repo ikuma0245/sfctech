@@ -201,7 +201,7 @@
     if (!isReady(g)) {
       body = `<div class="soon-box"><p class="en">COMING SOON</p><p>このページは準備中です。当日までに公開します。</p></div>`;
     } else {
-      const results = g.results?.length ? `<ol class="results">${g.results.map((r) => `<li>${esc(r)}</li>`).join("")}</ol>` : "";
+      const results = g.results?.length ? `${g.resultsNote ? `<p class="note">${esc(g.resultsNote)}</p>` : ""}<ol class="results">${g.results.map((r) => `<li>${esc(r)}</li>`).join("")}</ol>` : "";
       const gallery = g.images?.length
         ? `<div class="gallery">${g.images.map((im) => `
             <figure><img src="${esc(im.src)}" alt="${esc(im.caption)}" loading="lazy">
@@ -237,7 +237,7 @@
           <span class="tag">${esc(g.name)}</span>${isReady(g) ? "" : '<span class="tag soon">COMING SOON</span>'}
           <h1 class="g-title"><span class="hl">${esc(g.title)}</span></h1>
           <p class="g-catch">${esc(g.catch)}</p>
-          ${g.cover ? `<div class="g-cover"><img src="${esc(g.cover)}" alt=""></div>` : ""}
+          ${g.cover ? `<figure class="g-cover"><img src="${esc(g.cover)}" alt="${esc(g.coverCaption)}">${g.coverCaption ? `<figcaption>${esc(g.coverCaption)}</figcaption>` : ""}</figure>` : ""}
         </div>
       </section>
       <div class="wrap">
