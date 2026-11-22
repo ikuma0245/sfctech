@@ -112,7 +112,9 @@ window.GROUPS = [
     future:
       "今後は、実際の海での調査を見据え、水の濁りや光の違いがAIの判定にどう影響するかを確かめたいと考えています。操縦体験と教材を改善しながら、海の環境とAIを身近に学べる活動へ発展させます。",
     members: ["髙橋 凛", "三堀入 久真"],
-    links: [],
+    links: [
+      { label: "ドローン社会共創コンソーシアム", url: "https://sfc-drone.notion.site/9505443334108235827d81f171051068" },
+    ],
   },
   {
     id: "machizukuri",
@@ -153,7 +155,20 @@ window.GROUPS = [
       "Google Colabを用いた実践用ノートブックの作成",
       "画像分類を体験できるハンズオンWebアプリの公開",
     ],
-    images: [],
+    // QRコードは下の関連リンクと同じ行き先。url を書くと画像を押して開ける
+    imagesLabel: "QRコード", // 見出し「GALLERY」の下の日本語（書かなければ「写真」）
+    images: [
+      {
+        src: "images/ai-course-1.png",
+        caption: "ハンズオン教材（画像分類デモ）のQRコード",
+        url: "https://shu7110.github.io/cat-dog-classifier/",
+      },
+      {
+        src: "images/ai-course-2.png",
+        caption: "実践用ノートブック（Google Colab）のQRコード",
+        url: "https://colab.research.google.com/drive/1u6Dzcoz_Lj62m950tyQ_hsdZPm1exQYY?usp=sharing",
+      },
+    ],
     video: "", // 橋本くんの動画素材が確定したら YouTube URL を入れる
     future: "",
     members: [],
@@ -169,15 +184,15 @@ window.GROUPS = [
 // -------------------------------------------------------------
 window.MEDIA = [
   {
-    source: "PIVOT",
-    program: "PIVOT TALK BUSINESS",
-    date: "2026.11.13",
-    title: "防衛テック投資の最前線",
-    person: "古谷 知之（国際文化会館 新領域戦略研究所 共同代表／慶應義塾大学 総合政策学部 教授）",
+    source: "BSフジ",
+    program: "プライムニュース",
+    date: "2026.09.24",
+    title: "「米中首脳会談」目前！トランプ氏“異例厚遇”の思惑とは？",
+    person: "古谷 知之（慶應義塾大学 総合政策学部 教授）",
     summary:
-      "ウクライナや中東情勢を背景に、世界で急増する防衛テックへの投資。防衛市場の構造変化と日本の現在地、そして次の主戦場となる量子技術の可能性を解説。",
-    duration: "30:54",
-    url: "https://pivotmedia.co.jp/movie/15242",
-    thumb: "https://pivotmedia.co.jp/images/static/converted/chapter/15242/ogp/15242.webp",
+      "ワシントンで開かれる米中首脳会談を前に、経済や安全保障、そしてAIやロボットなどの先端技術をめぐる両国の攻防を、米国・中国・先端技術の研究者3人が直前検証。2026年9月24日放送〈前編〉。",
+    duration: "29:53",
+    url: "https://youtu.be/8UFuPE2s9hs",
+    thumb: "https://i.ytimg.com/vi/8UFuPE2s9hs/maxresdefault.jpg",
   },
 ];

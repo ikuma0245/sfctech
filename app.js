@@ -73,7 +73,9 @@
     document.getElementById("wordmark").innerHTML = wordmarkSvg();
 
     const items = [S.event.name, "2026.11.24 TUE", S.event.venue, S.lab.theme, S.lab.name];
-    (window.MEDIA || []).slice(0, 1).forEach((m) => items.push(`${m.source}出演「${m.title}」公開中`));
+    // 題名の中のかぎ括弧は『』にして、外側の「」と重ならないようにする
+    const inner = (t) => String(t).replace(/「/g, "『").replace(/」/g, "』");
+    (window.MEDIA || []).slice(0, 1).forEach((m) => items.push(`${m.source}出演「${inner(m.title)}」公開中`));
     const row = items.map((t) => `<span>${esc(t)}</span>`).join("");
     document.getElementById("ticker").innerHTML = row + row + row + row;
 
@@ -203,9 +205,12 @@
     } else {
       const results = g.results?.length ? `${g.resultsNote ? `<p class="note">${esc(g.resultsNote)}</p>` : ""}<ol class="results">${g.results.map((r) => `<li>${esc(r)}</li>`).join("")}</ol>` : "";
       const gallery = g.images?.length
-        ? `<div class="gallery">${g.images.map((im) => `
-            <figure><img src="${esc(im.src)}" alt="${esc(im.caption)}" loading="lazy">
-            ${im.caption ? `<figcaption>${esc(im.caption)}</figcaption>` : ""}</figure>`).join("")}</div>`
+        ? `<div class="gallery">${g.images.map((im) => {
+            const img = `<img src="${esc(im.src)}" alt="${esc(im.caption)}" loading="lazy">`;
+            return `
+            <figure>${im.url ? `<a href="${esc(im.url)}" target="_blank" rel="noopener">${img}</a>` : img}
+            ${im.caption ? `<figcaption>${esc(im.caption)}</figcaption>` : ""}</figure>`;
+          }).join("")}</div>`
         : "";
       const yt = g.video ? youtubeEmbed(g.video) : "";
       const video = yt ? `<div class="video"><iframe src="${yt}" allowfullscreen loading="lazy" title="動画"></iframe></div>` : "";
@@ -217,7 +222,7 @@
         ${sec("SUMMARY", "概要", para(g.summary))}
         ${sec("BACKGROUND", "背景・目的", para(g.background))}
         ${sec("RESULTS", "成果", results)}
-        ${sec("GALLERY", "写真", gallery)}
+        ${sec("GALLERY", esc(g.imagesLabel || "写真"), gallery)}
         ${sec("MOVIE", "動画", video)}
         ${sec("FUTURE", "今後の展望", para(g.future))}
         ${sec("MEMBERS", "メンバー", members)}
