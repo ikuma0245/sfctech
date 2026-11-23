@@ -432,6 +432,7 @@ img { max-width: 100%; display: block; }
 .media-src .tag { margin: 0; color: var(--black); font-family: var(--ja); }
 .media-ttl { margin: 8px 0 0; font-size: 16px; font-weight: 700; line-height: 1.65; overflow-wrap: anywhere; }
 .media-ttl a { text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+.media-ttl .nb, .media-more .nb { white-space: nowrap; }
 .media-ttl .arrow, .media-more .arrow { display: inline-block; margin-left: 4px; font-family: var(--en); font-size: 0.85em; }
 .media-more { margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .media-more a {

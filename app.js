@@ -138,8 +138,12 @@
     const M = window.MEDIA || [];
     const MI = window.MEDIA_INFO || {};
     const mediaSec = document.getElementById("media");
-    const ext = (url, label) =>
-      `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}&#8288;<span class="arrow" aria-hidden="true">↗</span></a>`; // &#8288; は矢印だけが次の行に落ちないようにする
+    // 題名の最後の1文字と矢印をひとまとめにして、矢印だけが次の行に落ちないようにする
+    const ext = (url, label) => {
+      const t = [...String(label)];
+      const last = t.pop() ?? "";
+      return `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(t.join(""))}<span class="nb">${esc(last)}<span class="arrow" aria-hidden="true">↗</span></span></a>`;
+    };
     if (!M.length) mediaSec.remove();
     else document.getElementById("media-list").innerHTML = `
       <div class="media-head">
