@@ -73,9 +73,6 @@
     document.getElementById("wordmark").innerHTML = wordmarkSvg();
 
     const items = [S.event.name, "2026.11.24 TUE", S.event.venue, S.lab.theme, S.lab.name];
-    // 題名の中のかぎ括弧は『』にして、外側の「」と重ならないようにする
-    const inner = (t) => String(t).replace(/「/g, "『").replace(/」/g, "』");
-    (window.MEDIA || []).slice(0, 1).forEach((m) => items.push(`${m.source}出演「${inner(m.title)}」公開中`));
     const row = items.map((t) => `<span>${esc(t)}</span>`).join("");
     document.getElementById("ticker").innerHTML = row + row + row + row;
 
@@ -137,25 +134,32 @@
         <a class="pill-black" href="${esc(S.event.url)}" target="_blank" rel="noopener">イベント公式サイト<span class="arrow">↗</span></a>
       </div>`;
 
-    // media
+    // media（掲載・出演の一覧。動画の埋め込みやサムネイルは出さない）
     const M = window.MEDIA || [];
+    const MI = window.MEDIA_INFO || {};
     const mediaSec = document.getElementById("media");
+    const ext = (url, label) =>
+      `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}&#8288;<span class="arrow" aria-hidden="true">↗</span></a>`; // &#8288; は矢印だけが次の行に落ちないようにする
     if (!M.length) mediaSec.remove();
-    else document.getElementById("media-list").innerHTML = M.map((m) => `
-      <a class="media-card" href="${esc(m.url)}" target="_blank" rel="noopener">
-        <div class="media-thumb">
-          ${m.thumb ? `<img src="${esc(m.thumb)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
-          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-          ${m.duration ? `<span class="dur en">${esc(m.duration)}</span>` : ""}
+    else document.getElementById("media-list").innerHTML = `
+      <div class="media-head">
+        ${MI.image ? `<img class="media-face" src="${esc(MI.image)}" alt="" width="72" height="72" loading="lazy">` : ""}
+        <div>
+          ${MI.person ? `<p class="media-who">${esc(MI.person)}</p>` : ""}
+          ${MI.period ? `<p class="media-period">${esc(MI.period)}</p>` : ""}
         </div>
-        <div class="media-body">
-          <div class="media-meta"><span class="tag">${esc(m.source)}</span><span class="en">${esc(m.program)}</span><span class="en">${esc(m.date)}</span></div>
-          <h3><span class="hl">${esc(m.title)}</span></h3>
-          <p class="media-sum">${esc(m.summary)}</p>
-          <p class="media-person">出演：${esc(m.person)}</p>
-          <span class="pill-yellow">動画を見る<span class="arrow">↗</span></span>
-        </div>
-      </a>`).join("");
+      </div>
+      <ol class="media-rows">${M.map((m) => `
+        <li>
+          <div class="media-date en">${esc(m.date)}</div>
+          <div class="media-item">
+            <div class="media-src">${m.kind ? `<span class="tag">${esc(m.kind)}</span>` : ""}<span>${esc(m.source)}</span></div>
+            <p class="media-ttl">${m.url ? ext(m.url, m.title) : esc(m.title)}</p>
+            ${m.videos?.length ? `<p class="media-more">${m.videos.map((v, k) => ext(v, m.videos.length > 1 ? `動画 ${k + 1}` : "動画")).join("")}</p>` : ""}
+          </div>
+        </li>`).join("")}
+      </ol>
+      ${MI.note ? `<p class="media-note">${esc(MI.note)}</p>` : ""}`;
 
     // projects
     document.getElementById("cards").innerHTML = G.map((g, i) => `

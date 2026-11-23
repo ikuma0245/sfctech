@@ -123,7 +123,8 @@ window.GROUPS = [
     color: "#F5A35C",
     title: "AI×街づくりワークショップ「ゆるキャラコンペ」",
     catch: "高校生がAIでご当地キャラを生み出し、街の未来を考える",
-    cover: "",
+    cover: "images/machizukuri-1.jpg",
+    coverCaption: "3Dプリンターで作った SFC TECH 2026 のチャーム",
     summary:
       "田村市のあぶくま柏鵬高校の生徒を対象にした、「AI×街づくり」がテーマのワークショップです（2026年12月実施予定）。高校生が、地元の“ご当地キャラ”を考えて提案します。街の課題やPRしたい魅力を見つけるところから、キャラのデザインや性格を決めるところまで、最初から最後までAIを使って取り組みます。画像生成AIでデザインし、性格や口癖をAIに教えて会話できるキャラに仕上げ、最後はPR動画まで作ります。",
     background:
@@ -133,7 +134,11 @@ window.GROUPS = [
       "街のミッションを持ったオリジナルキャラのデザインと設定",
       "キャラの活用アイデアをまとめた発表資料と、AIで作るPR動画",
     ],
-    images: [],
+    images: [
+      { src: "images/machizukuri-2.jpg", caption: "3Dプリンターで作ったフィギュア" },
+      { src: "images/machizukuri-3.jpg", caption: "3Dプリンター" },
+      { src: "images/machizukuri-4.png", caption: "AIでゆるキャラを作るアプリの画面" },
+    ],
     video: "",
     future:
       "最終的には、各班が考えたキャラを、市役所職員の方の前でプレゼンしてもらう予定です。この発表は、本事業の年次成果発表会の場で行います。",
@@ -180,19 +185,126 @@ window.GROUPS = [
 ];
 
 // -------------------------------------------------------------
-//  メディア掲載（新しいものを上に）
+//  メディア掲載・出演の一覧（新しいものを上に）
+//  もとの表: 古谷知之_2026年メディア掲載一覧_20261121.xlsx の「掲載・出演一覧」
+//  date・kind・source・title・url は表のまま。videos は表の補足出典にある YouTube
+//  動画の埋め込みやサムネイルは出さず、文字のリンクだけにする
 // -------------------------------------------------------------
+window.MEDIA_INFO = {
+  person: "古谷 知之",
+  image: "images/furutani-3d.jpg",
+  period: "2026年1月1日〜11月21日の掲載・出演（2026年11月21日時点）",
+  note: "日付は放送日・公開日・発売日など、媒体によって種類が異なります。毎日新聞と朝日新聞は、国際文化会館の掲載案内日です。",
+};
+
 window.MEDIA = [
   {
-    source: "BSフジ",
-    program: "プライムニュース",
+    date: "2026.11.17",
+    kind: "動画配信",
+    source: "PIVOT 公式チャンネル",
+    title:
+      "【防衛株急落で見落とされていること】「日本版アンドゥリル」はいらない／海洋国家・日本に必要な装備とは／高単価な水中・水上ドローン／なぜ迎撃ドローンを取得した？／防衛三文書に防衛産業追加",
+    url: "https://www.youtube.com/watch?v=_B0p6gl6R_E",
+  },
+  {
+    date: "2026.11.13",
+    kind: "動画配信",
+    source: "PIVOT 公式チャンネル",
+    title:
+      "【防衛投資はバブルか？】防衛テック完全解説／過去最高半年で6兆円／スタートアップとプライムの関係／戦争がないと持続しないビジネス？／戦時経済は畳み方が難しい／日本が覇権を握れる？量子防衛網とは",
+    url: "https://www.youtube.com/watch?v=VUC7l2wqPug",
+  },
+  {
     date: "2026.09.24",
-    title: "「米中首脳会談」目前！トランプ氏“異例厚遇”の思惑とは？",
-    person: "古谷 知之（慶應義塾大学 総合政策学部 教授）",
-    summary:
-      "ワシントンで開かれる米中首脳会談を前に、経済や安全保障、そしてAIやロボットなどの先端技術をめぐる両国の攻防を、米国・中国・先端技術の研究者3人が直前検証。2026年9月24日放送〈前編〉。",
-    duration: "29:53",
-    url: "https://youtu.be/8UFuPE2s9hs",
-    thumb: "https://i.ytimg.com/vi/8UFuPE2s9hs/maxresdefault.jpg",
+    kind: "テレビ",
+    source: "BSフジLIVE プライムニュース",
+    title:
+      "トランプ氏異例厚遇か 習近平氏とディールは 「米中会談」直前分析",
+    url: "https://www.bsfuji.tv/primenews/archive/2026.html",
+    videos: ["https://www.youtube.com/watch?v=8UFuPE2s9hs", "https://www.youtube.com/watch?v=0KXhF7BbIdE"],
+  },
+  {
+    date: "2026.09.15",
+    kind: "新聞",
+    source: "日本経済新聞",
+    title:
+      "「墜落推定」のグローバルホーク、日本に3機のみ 警戒・監視に穴",
+    url: "https://www.nikkei.com/article/DGXZQOUA156IQ0V10C26A9000000/",
+  },
+  {
+    date: "2026.08.19",
+    kind: "動画配信",
+    source: "日本外国特派員協会（FCCJ）",
+    title:
+      "PRESS CONFERENCE: Japan's Security in an Uncertain World",
+    url: "https://www.youtube.com/watch?v=6F12Nn7dak0",
+  },
+  {
+    date: "2026.08.17",
+    kind: "新聞",
+    source: "中日新聞／中日新聞Web",
+    title:
+      "攻撃型ドローン 使うのか？",
+    url: "https://www.chunichi.co.jp/article/1297508?rct=hiroba",
+  },
+  {
+    date: "2026.08.06",
+    kind: "動画配信",
+    source: "Business Insider Japan／インサイダ",
+    title:
+      "軍事用ドローンの次の戦場は「海」。防衛プライム企業にとって好機のワケ",
+    url: "https://www.businessinsider.jp/article/2608-06-next-battlefield-for-drones-is-sea/",
+    videos: ["https://www.youtube.com/watch?v=C1mkT2gqTvI"],
+  },
+  {
+    date: "2026.07.21",
+    kind: "テレビ",
+    source: "BSフジLIVE プライムニュース",
+    title:
+      "史上初ウクライナ作戦 水陸無人機が強襲上陸 ドローン変えた陸上戦",
+    url: "https://www.bsfuji.tv/primenews/archive/2026.html",
+    videos: ["https://www.youtube.com/watch?v=kDpaAGHlTDE"],
+  },
+  {
+    date: "2026.07.14",
+    kind: "テレビ",
+    source: "BSフジLIVE プライムニュース",
+    title:
+      "米と対立深めるイラン 水中ドローン劇的進化 モジタバ師声明を分析",
+    url: "https://www.bsfuji.tv/primenews/archive/2026.html",
+    videos: ["https://www.youtube.com/watch?v=lur0ZVRxTm0", "https://www.youtube.com/watch?v=hll2AzvdEbk"],
+  },
+  {
+    date: "2026.07.09",
+    kind: "テレビ",
+    source: "BSフジLIVE プライムニュース",
+    title:
+      "数万機が日本に襲来？ カギ握る迎撃ドローン ウ軍に学ぶ技術と戦略",
+    url: "https://www.bsfuji.tv/primenews/archive/2026.html",
+    videos: ["https://www.youtube.com/watch?v=uNcuphumoVE", "https://www.youtube.com/watch?v=E4kIFICzQcg"],
+  },
+  {
+    date: "2026.06.03",
+    kind: "新聞",
+    source: "朝日新聞",
+    title:
+      "「SFではない」ホルムズ海峡の今 AI・ドローンが変える海洋防衛",
+    url: "https://www.asahi.com/articles/ASV621RH0V62UTFK00SM.html",
+  },
+  {
+    date: "2026.05.20",
+    kind: "雑誌・専門誌",
+    source: "日経エレクトロニクス 2026年6月号",
+    title:
+      "米イランの軍事衝突、日本防衛への教訓 専門家は「海のドローン対策も必要」と指摘",
+    url: "https://www.nikkeibpm.co.jp/item/ne/883/bn/NE2790321.html",
+  },
+  {
+    date: "2026.05.13",
+    kind: "新聞",
+    source: "毎日新聞",
+    title:
+      "「今が時代の転換点」 政府、国産ドローン量産体制へ動き加速",
+    url: "https://program.ihj.global/news/2026-0513/",
   },
 ];
